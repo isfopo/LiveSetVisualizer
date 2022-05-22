@@ -1,9 +1,22 @@
 import oscP5.*;
   
 OscP5 oscP5;
-PImage img;
+ArrayList<PImage> images = new ArrayList<PImage>();
 float messageValue;
 float size;
+
+String[] tracks = {
+  "Gutiar",
+  "Bass",
+  "Minilogue",
+};
+
+String[] imageFiles = {
+  "icons/sound.png",
+  "icons/shape.png",
+  "icons/place.png",
+  "icons/memory.png",
+};
 
 void setup() {
   frameRate(30);
@@ -11,13 +24,17 @@ void setup() {
   background(255);
   
   oscP5 = new OscP5(this,12000);
-  img = loadImage("icons/memory.png");
+
+  for (String file : imageFiles) {
+    images.add(loadImage(file));
+  }
+
   colorMode(HSB, 360, 100, 100);
 }
 
 void draw() {
   background(255);
-  image(img, 0, 0, 400, 400);
+  image(images.get(0), 0, 0, 400, 400);
 }
 
 void oscEvent(OscMessage message) {
