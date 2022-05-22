@@ -22,7 +22,6 @@ void setup() {
   frameRate(30);
   fullScreen();
   pixelDensity(2);
-  background(0, 153, 204);
   
   oscP5 = new OscP5(this,12000);
 
@@ -32,10 +31,12 @@ void setup() {
 }
 
 void draw() {
-  background(0, 153, 204);
+  background(255);
   for (int i = 0; i < images.size(); i = i+1) {
     image(images.get(i), i*350+ 100, 200, 300, 300);
   }
+  fill(0, 153, 204, 100);
+  rect(0, 0, width, height);
 }
 
 void oscEvent(OscMessage message) {
