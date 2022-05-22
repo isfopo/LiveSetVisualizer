@@ -21,19 +21,17 @@ String[] imageFiles = {
 void setup() {
   frameRate(30);
   fullScreen();
-  background(255);
+  background(0, 153, 204);
   
   oscP5 = new OscP5(this,12000);
 
   for (String file : imageFiles) {
     images.add(loadImage(file));
   }
-
-  colorMode(HSB, 360, 100, 100);
 }
 
 void draw() {
-  background(255);
+  background(0, 153, 204);
   for (int i = 0; i < images.size(); i = i+1) {
     image(images.get(i), i*350+ 100, 200, 300, 300);
   }
