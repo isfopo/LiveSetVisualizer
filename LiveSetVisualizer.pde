@@ -21,6 +21,7 @@ String[] imageFiles = {
 void setup() {
   frameRate(30);
   fullScreen();
+  pixelDensity(2);
   background(0, 153, 204);
   
   oscP5 = new OscP5(this,12000);
