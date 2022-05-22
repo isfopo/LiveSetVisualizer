@@ -34,7 +34,9 @@ void setup() {
 
 void draw() {
   background(255);
-  image(images.get(0), 0, 0, 400, 400);
+  for (int i = 0; i < images.size(); i = i+1) {
+    image(images.get(i), i*350+ 100, 200, 300, 300);
+  }
 }
 
 void oscEvent(OscMessage message) {
