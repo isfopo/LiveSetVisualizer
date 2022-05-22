@@ -18,6 +18,10 @@ String[] imageFiles = {
   "icons/memory.png",
 };
 
+color[] colors = {
+  color(0, 153, 204, 100)
+};
+
 void setup() {
   frameRate(30);
   fullScreen();
@@ -35,7 +39,7 @@ void draw() {
   for (int i = 0; i < images.size(); i = i+1) {
     image(images.get(i), i*350+ 100, 200, 300, 300);
   }
-  fill(0, 153, 204, 100);
+  fill(colors[0]);
   rect(0, 0, width, height);
 }
 
