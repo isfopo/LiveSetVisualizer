@@ -1,9 +1,8 @@
 import oscP5.*;
-  
+
 OscP5 oscP5;
 ArrayList<PImage> images = new ArrayList<PImage>();
-float messageValue;
-float size;
+int fade = 0;
 
 String[] tracks = {
   "Gutiar",
@@ -41,15 +40,13 @@ void draw() {
   }
   fill(colors[0]);
   rect(0, 0, width, height);
+  fill(0, fade);
+  rect(0, 0, width, height);
 }
 
 void oscEvent(OscMessage message) {
-  if (message.addrPattern().equals("/Minilogue/hi")) {
-    messageValue = message.get(0).floatValue();
-  }
-  else if (message.addrPattern().equals("/Minilogue/low")) {
-    size = message.get(0).floatValue();
-  } else {
-    println(message.addrPattern());
+  if (message.addrPattern().equals("/fade")) {
+    println(message.get(0).intValue());
+    fade = message.get(0).intValue();
   }
 }
