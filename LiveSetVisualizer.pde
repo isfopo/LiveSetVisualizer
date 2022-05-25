@@ -46,9 +46,13 @@ void draw() {
 void oscEvent(OscMessage message) {
   if (message.addrPattern().equals("/fade")) {
     fade = message.get(0).intValue();
-  } else if (message.addrPattern().equals("/hue")) {
+  }
+  else if (message.addrPattern().equals("/hue")) {
     colorMode(HSB);
     hue = color(message.get(0).intValue(), 255, 255);
+  }
+  else if (message.addrPattern().equals("/reset")) {
+    println("you hit reset - now everything will be different");
   }
 }
 
